@@ -1,8 +1,12 @@
 import Logo from "../images/logo.svg";
 import DownLogo from "../images/down.svg";
 import SearchLogo from "../images/search.svg";
+import { useState } from "react";
+
+
 
 function Navbar() {
+    const [value,setValue] = useState('')
   return (
     <div>
         <nav className="header__nav container">
@@ -23,7 +27,11 @@ function Navbar() {
                 <li className="header__item"><a href="" className="header__link">SHORTCODES</a></li>
             </ul>
             <div className="header__search">
-                <input type="text" className="header__search-input" placeholder="Search"/>
+                <input type="text" 
+                className="header__search-input" 
+                placeholder="Search"
+                value={value}
+                onChange={(e)=>setValue(e.target.value)}/>
                 <button className="header__search-button"><img src={SearchLogo} alt="search"/></button>
             </div>
         </nav>
